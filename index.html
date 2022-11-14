@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+
+        <!-- HEADER -->
+
+        <div class="header">
+            <div class="header-h1">
+                <h1>Warehouse Program</h1>
+            </div>
+            <div class="header-btns">
+                <button onclick="openSale()">Sale</button>
+                <button onclick="openDelivery()">Delivery</button>
+                <button onclick="openDashboard()">Dashboard</button>
+                <button onclick="openArchive()">Archive</button>
+            </div>
+        </div>
+
+        <!-- SALE PAGE -->
+
+        <section class="sale-main">
+            <div class="sale-header">
+                <h2>SALE</h2>
+            </div>
+            <div class="sale-flex">
+                <div class="sale-category-all">
+                    <button onclick="searchByAllCategories()" title="All">All</button>
+                    <div class="sale-category"></div>
+                </div>
+                <div class="sale-products">
+                    <input id="search-product-input" type="text" placeholder="Search for product..."
+                        style="width: 506px;">
+                    <div class="sale-products-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>PRODUCT</th>
+                                    <th>MEASURE</th>
+                                    <th>PRICE</th>
+                                    <th>CURRENCY</th>
+                                </tr>
+                            </thead>
+                            <tbody id="products-table-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="sale-sale">
+                    <input id="client-name-input" type="text" placeholder="Client name..." autocomplete="off"
+                        style="width: 648px;">
+                    <div class="curr-sale">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>PRODUCT</th>
+                                    <th>MEASURE</th>
+                                    <th>QUANTITY</th>
+                                    <th>PRICE</th>
+                                    <th>CURRENCY</th>
+                                    <th>TOTAL</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="current-sale-body"></tbody>
+                        </table>
+                        <p>Total: <span id="total-curr-price"></span></p>
+                        <div id="payment-div">
+                            <label>
+                                <input type="radio" id="cash" name="payment" value="Cash" style="box-shadow: none;">Cash
+                            </label>
+                            <br>
+                            <label>
+                                <input type="radio" id="bank" name="payment" value="Bank"
+                                    style="box-shadow: none;">Bank:
+                                <span id="iban"></span>
+                            </label>
+                        </div>
+                        <div class="finish-sale">
+                            <button id="finish-sale-btn" type="submit">FINISH</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="model-sale">
+                <div class="sale-product-qnt">
+                    <span class="close-sale-product-qnt">&times;</span>
+                    <p id="product-in-qnt-sale"></p>
+                    <input id="input-qnt" type="text"
+                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+                    <br>
+                    <button class="qnt-btn" data-num="7">7</button>
+                    <button class="qnt-btn" data-num="8">8</button>
+                    <button class="qnt-btn" data-num="9">9</button>
+                    <br>
+                    <button class="qnt-btn" data-num="4">4</button>
+                    <button class="qnt-btn" data-num="5">5</button>
+                    <button class="qnt-btn" data-num="6">6</button>
+                    <br>
+                    <button class="qnt-btn" data-num="1">1</button>
+                    <button class="qnt-btn" data-num="2">2</button>
+                    <button class="qnt-btn" data-num="3">3</button>
+                    <br>
+                    <button class="qnt-btn" data-num="0">0</button>
+                    <button class="qnt-btn" data-num=".">.</button>
+                    <button id="add-to-curr-sale">OK</button>
+                </div>
+            </div>
+            <div class="modal">
+                <div class="notice">
+                    <p>Insufficient quantity!</p>
+                    <p>There are only <span id="remaining-amount"></span> of this product!</p>
+                    <button id="closeModal">OK</button>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- DELIVERY PAGE -->
+
+        <section class="delivery-main">
+            <div class="delivery-header">
+                <h2>DELIVERY</h2>
+            </div>
+            <div class="delivery-flex">
+                <div class="delivery-category-all">
+                    <button onclick="searchByAllCategories()" title="All">All</button>
+                    <br>
+                    <div class="delivery-category"></div>
+                </div>
+                <div class="delivery-products">
+                    <div class="delivery-products-table">
+                        <input id="search-product-input-delivery" type="text" placeholder="Search for product..."
+                            autocomplete="off">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>PRODUCT</th>
+                                    <th>MEASURE</th>
+                                    <th>QUANTITY</th>
+                                    <th>PRICE</th>
+                                    <th>CURRENCY</th>
+                                    <th>CATEGORY</th>
+                                </tr>
+                            </thead>
+                            <tbody id="products-table-body-delivery"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-delivery">
+                <div class="delivery-product-qnt">
+                    <span class="close-delivery-product-qnt">&times;</span>
+                    <p id="product-in-qnt-delivery"></p>
+                    <input id="input-qnt-delivery" type="text"
+                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+                    <br>
+                    <button class="qnt-btn" data-num="7">7</button>
+                    <button class="qnt-btn" data-num="8">8</button>
+                    <button class="qnt-btn" data-num="9">9</button>
+                    <br>
+                    <button class="qnt-btn" data-num="4">4</button>
+                    <button class="qnt-btn" data-num="5">5</button>
+                    <button class="qnt-btn" data-num="6">6</button>
+                    <br>
+                    <button class="qnt-btn" data-num="1">1</button>
+                    <button class="qnt-btn" data-num="2">2</button>
+                    <button class="qnt-btn" data-num="3">3</button>
+                    <br>
+                    <button class="qnt-btn" data-num="0">0</button>
+                    <button class="qnt-btn" data-num=".">.</button>
+                    <button id="add-product-in-store">OK</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- DASHBOARD PAGE -->
+
+        <section class="dashboard-main">
+            <div class="dashboard-header">
+                <h2>DASHBOARD</h2>
+            </div>
+            <div class="new-btns">
+                <button id="add-new-category-main-btn">New category</button>
+                <button id="add-new-product-main-btn">New product</button>
+                <button id="add-comp-info-main-btn">Company info</button>
+            </div>
+            <div class="dashboard-flex">
+                <div class="dashboard-category-all">
+                    <button onclick="searchByAllCategories()" style="margin-right: 26px;" title="All">All</button>
+                    <div class="dashboard-category"></div>
+                </div>
+                <div class="dashboard-products">
+                    <div class="dashboard-products-table">
+                        <input id="search-product-input-dashboard" type="text" placeholder="Search for product..."
+                            autocomplete="off">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>PRODUCT</th>
+                                    <th>MEASURE</th>
+                                    <th>QUANTITY</th>
+                                    <th>PRICE</th>
+                                    <th>CURRENCY</th>
+                                    <th>CATEGORY</th>
+                                    <th>EDIT</th>
+                                    <th>DELETE</th>
+                                </tr>
+                            </thead>
+                            <tbody id="products-table-body-dashboard"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-dashboard-new-category">
+                <div class="add-new-category-div">
+                    <span class="close-new-category">&times;</span>
+                    <p>Category name:</p>
+                    <input id="add-new-category-input" type="text">
+                    <br>
+                    <button id="add-new-category-btn">Add</button>
+                </div>
+            </div>
+            <div class="modal-dahsboard-new-product">
+                <div class="add-new-product-div">
+                    <span id="close-new-product-modal">&times;</span>
+                    <p style="text-align: center;font-size: 16px; color: red;" id="error-new-product"></p>
+                    <div class="add-new-product-flex">
+                        <div>
+                            <p>Product:</p>
+                            <input id="modal-new-product-name-input" type="text" autocomplete="off">
+                            <p>Measure:</p>
+                            <input id="modal-new-product-meas-input" type="text" autocomplete="off"
+                                style="width: 120px;">
+                            <p>Quantity:</p>
+                            <input id="modal-new-product-qnt-input" type="number">
+                            <p>Price:</p>
+                            <input id="modal-new-product-price-input" type="number">
+                        </div>
+                        <div>
+                            <p>Category:</p>
+                            <div class="add-new-product-category">
+                                <div class="output-new-product-category"></div>
+                            </div>
+                            <div style="text-align: center;">
+                                <button id="modal-add-new-product-btn">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-dashboard-delete-product">
+                <div class="delete-product-div">
+                    <p>Are you sure you want to permanently delete this product?</p>
+                    <button id="delete-product-yes">YES</button>
+                    <button id="delete-product-no">NO</button>
+                </div>
+            </div>
+            <div class="modal-dashboard-edit-product">
+                <div class="edit-product-div">
+                    <span id="close-edit-product-modal">&times;</span>
+                    <p style="text-align: center;font-size: 16px; color: red;" id="error-edit-product"></p>
+                    <div class="edit-product-flex">
+                        <div>
+                            <p>Product:</p>
+                            <input id="modal-edit-product-name-input" type="text" autocomplete="off">
+                            <p>Measure:</p>
+                            <input id="modal-edit-product-meas-input" type="text" autocomplete="off"
+                                style="width: 120px;">
+                            <p>Quantity:</p>
+                            <input id="modal-edit-product-qnt-input" type="number">
+                            <p>Price:</p>
+                            <input id="modal-edit-product-price-input" type="number">
+                        </div>
+                        <div>
+                            <p>Category:</p>
+                            <input id="modal-edit-product-cat-input" type="text" readonly
+                                style="width: 180px; margin-bottom: 8px;">
+                            <label>
+                                <input onclick="getCategory(this.value)" type="radio" name="category" value="">No
+                                category
+                            </label>
+                            <div class="edit-product-category">
+                                <div class="output-edit-product-category"></div>
+                            </div>
+                            <div style="text-align: center;">
+                                <button id="modal-edit-product-btn">Edit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-dashboard-comp-info">
+                <div class="comp-info-div">
+                    <span id="close-comp-info-modal">&times;</span>
+                    <div class="comp-info-flex">
+                        <div>
+                            <p>Company name:</p>
+                            <input id="comp-name" type="text" autocomplete="off">
+                            <p>Company city:</p>
+                            <input id="comp-city" type="text" autocomplete="off">
+                            <p>Company address:</p>
+                            <input id="comp-address" type="text" autocomplete="off">
+                            <p>Company phone:</p>
+                            <input id="comp-phone" type="text" autocomplete="off">
+                        </div>
+                        <div>
+                            <p>Responsible person:</p>
+                            <input id="comp-rp" type="text" autocomplete="off">
+                            <p>VAT &#8470;:</p>
+                            <input id="comp-vat" type="text" autocomplete="off">
+                            <p>Bank:</p>
+                            <input id="comp-bank" type="text" autocomplete="off">
+                            <p>IBAN:</p>
+                            <input id="comp-iban" type="text" autocomplete="off">
+                        </div>
+                    </div>
+                    <div style="text-align: center;">
+                        <button id="comp-info-btn">Add</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ARCHIVE PAGE -->
+
+        <section class="archive-main">
+            <div class="archive-header">
+                <h2>ARCHIVE</h2>
+            </div>
+            <div class="delete-all">
+                <button id="delete-all-main-btn">Delete ALL</button>
+            </div>
+            <div class="archive-flex">
+                <div>
+                    <input id="search-sales-input" type="text" placeholder="Search by client name..."
+                        autocomplete="off">
+                </div>
+                <div>
+                    <input id="search-sales-input-date" type="date">
+                    <br>
+                    <button id="search-by-date-btn">Search by date</button>
+                </div>
+            </div>
+            <div class="archive-sales-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>DATE</th>
+                            <th>NAME</th>
+                            <th>TOTAL</th>
+                            <th>REVIEW</th>
+                            <th>DELETE</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sale-table-body-archive"></tbody>
+                </table>
+            </div>
+            <div class="modal-delete-sale">
+                <div class="delete-sale-div">
+                    <p>Are you sure you want to permanently delete this sale?</p>
+                    <button id="delete-sale-yes">YES</button>
+                    <button id="delete-sale-no">NO</button>
+                </div>
+            </div>
+            <div class="modal-delete-all">
+                <div class="delete-all-div">
+                    <p>Are you sure you want to permanently delete ALL sales?</p>
+                    <button id="delete-all-yes">YES</button>
+                    <button id="delete-all-no">NO</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

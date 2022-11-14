@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sale.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <section class="sale">
+            <div class="heading">
+                <h1>Sale</h1>
+            </div>
+            <div class="num-date">
+                <div>
+                    <div class="num">
+                        <div>
+                            <p>&#8470;:</p>
+                        </div>
+                        <div>
+                            <p id="sale-num"></p>
+                        </div>
+                    </div>
+                    <div class="date">
+                        <div>
+                            <p>Date:</p>
+                        </div>
+                        <div>
+                            <p><span id="sale-date"></span> / <span id="sale-time"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="info-main">
+                <div class="receiver">
+                    <table>
+                        <tr>
+                            <td>Receiver:</td>
+                            <td id="receiver-name"></td>
+                        </tr>
+                        <tr>
+                            <td>VAT &#8470;:</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>City:</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Address:</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>RP:</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Phone:</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="supplier">
+                    <table>
+                        <tr>
+                            <td>Supplier:</td>
+                            <td id="supplier-name"></td>
+                        </tr>
+                        <tr>
+                            <td>VAT &#8470;:</td>
+                            <td id="supplier-vat"></td>
+                        </tr>
+                        <tr>
+                            <td>City:</td>
+                            <td id="supplier-city"></td>
+                        </tr>
+                        <tr>
+                            <td>Address:</td>
+                            <td id="supplier-address"></td>
+                        </tr>
+                        <tr>
+                            <td>RP:</td>
+                            <td id="supplier-rp"></td>
+                        </tr>
+                        <tr>
+                            <td>Phone:</td>
+                            <td id="supplier-phone"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <section class="table">
+            <div class="sale-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>PRODUCT</th>
+                            <th>MEASURE</th>
+                            <th>QUANTITY</th>
+                            <th>PRICE</th>
+                            <th>CURRENCY</th>
+                            <th>TOTAL</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body"></tbody>
+                </table>
+            </div>
+        </section>
+        <section class="total">
+            <div>
+                <p style="font-weight: bold;">Total: <span id="total"></span> EUR</p>
+            </div>
+        </section>
+        <section class="bottom-main">
+            <div>
+                <table>
+                    <tr>
+                        <td>Date of event:</td>
+                        <td id="date-of-event"></td>
+                    </tr>
+                    <tr>
+                        <td>Place of event:</td>
+                        <td id="place-of-event"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <table>
+                    <tr>
+                        <td>Payment:</td>
+                        <td id="payment-method"></td>
+                    </tr>
+                    <tr>
+                        <td>IBAN:</td>
+                        <td id="supplier-iban"></td>
+                    </tr>
+                    <tr>
+                        <td>Bank:</td>
+                        <td id="supplier-bank"></td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <div class="print">
+        <button onclick="window.print()" class="noPrint">Print</button>
+    </div>
+
+    <script src="sale.js"></script>
+</body>
+
+</html>

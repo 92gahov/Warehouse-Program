@@ -1,0 +1,22 @@
+{
+  "products": [],
+  "categories": [],
+  "saleNumber": {
+    "id": 1,
+    "number": 1
+  },
+  "compInfo": [
+    {
+      "id": 1,
+      "compName": "",
+      "compCity": "",
+      "compAddress": "",
+      "compPhone": "",
+      "compRP": "",
+      "compVAT": "",
+      "compBank": "",
+      "compIBAN": ""
+    }
+  ],
+  "archive": []
+}

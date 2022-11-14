@@ -1,0 +1,210 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.heading {
+    text-align: center;
+}
+
+.heading h1 {
+    font-size: 36px;
+}
+
+.sale {
+    width: 82%;
+    margin: 0 auto;
+}
+
+.num-date {
+    display: flex;
+    justify-content: right;
+}
+
+.num-date p {
+    margin: 0;
+}
+
+.num {
+    display: flex;
+    margin-bottom: 8px;
+    justify-content: space-between;
+}
+
+.num>div:nth-child(1) {
+    padding: 0 8px;
+}
+
+.date {
+    display: flex;
+    justify-content: space-between;
+}
+
+.date>div:nth-child(1) {
+    padding: 0 8px;
+}
+
+.info-main {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.receiver {
+    border: 2px solid rgb(100, 98, 98);
+    border-radius: 8px;
+    padding: 0 8px;
+    width: 360px;
+    margin-right: 8px;
+}
+
+.receiver table td:nth-child(1) {
+    width: 80px;
+}
+
+.supplier {
+    border: 2px solid rgb(100, 98, 98);
+    border-radius: 8px;
+    padding: 0 8px;
+    width: 360px;
+}
+
+
+.supplier table td:nth-child(1) {
+    width: 80px;
+}
+
+.table {
+    width: 82%;
+    margin: 0 auto;
+}
+
+.sale-table {
+    display: flex;
+    justify-content: center;
+}
+
+.sale-table table {
+    border-collapse: collapse;
+    margin-top: 30px;
+    font-size: 1em;
+    min-width: 760px;
+    max-width: 760px;
+}
+
+.sale-table table thead tr {
+    font-size: 16px;
+    border: 2px solid black;
+    background-color: #cec9c9;
+}
+
+.sale-table table td {
+    min-width: 30px;
+    max-width: 30px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+}
+
+.sale-table table th {
+    padding: 0 7px;
+    text-align: left;
+    border: 2px solid black;
+}
+
+.sale-table table th:nth-child(1) {
+    width: 240px;
+}
+
+.sale-table table td {
+    border: 2px solid black;
+    padding: 4px 0 0 7px;
+    font-weight: bold;
+}
+
+.total {
+    text-align: right;
+    width: 91%;
+    margin-top: 20px;
+}
+
+.bottom-main {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.bottom-main>div {
+    border: 2px solid rgb(100, 98, 98);
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.bottom-main>div:nth-child(1) {
+    margin-right: 8px;
+    width: 420px;
+}
+
+.bottom-main>div:nth-child(1) table td:nth-child(1) {
+    width: 130px;
+}
+
+.bottom-main>div:nth-child(2) {
+    width: 300px;
+}
+
+.bottom-main>div:nth-child(2) table td:nth-child(1) {
+    width: 90px;
+}
+
+.print {
+    text-align: center;
+    margin: 70px 0 50px 0;
+}
+
+.print button {
+    font-size: 22px;
+    font-weight: bold;
+    padding: 4px;
+    width: 100px;
+    border: 2px solid black;
+    background-color: rgb(197, 192, 192);
+    transition: 0.2s;
+}
+
+.print button:hover {
+    background-color: rgb(87, 85, 85);
+    color: wheat;
+    cursor: pointer;
+}
+
+
+@media print {
+    .sale-table {
+        margin-right: 120px;
+    }
+
+    .sale-table table {
+        min-width: 460px;
+        max-width: 460px;
+    }
+
+    .total {
+        width: 89%;
+    }
+
+    .bottom-main>div:nth-child(1) {
+        width: 300px;
+    }
+
+    .bottom-main>div:nth-child(2) {
+        width: 260px;
+    }
+
+    .print {
+        display: none;
+    }
+}
